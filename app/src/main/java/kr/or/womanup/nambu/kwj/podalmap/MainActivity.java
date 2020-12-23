@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-
+//mainactivity에 이부분을 추가해봤어요!!
+//1223 11:50 김원정
 // 종료시 종료하시겠습니까?나오게..하고싶음...
 public class MainActivity extends AppCompatActivity {
     Button btn_start, btn_check;
