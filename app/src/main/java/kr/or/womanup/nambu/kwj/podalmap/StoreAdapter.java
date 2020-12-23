@@ -43,13 +43,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
     public void clear(){list.clear();}
     public void addItem(Store store){list.add(store);}
-
-
-
 
     @NonNull
     @Override
@@ -59,13 +55,13 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         ViewHolder holder = new ViewHolder(itemView);
         return holder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Store store = list.get(position);
         holder.txtName.setText(store.store_name);
         holder.txtHour.setText(store.store_hour);
         holder.txtAddr.setText(store.store_addr);
+        holder.imageView.setImageResource(0);
         download(store.filename,holder.imageView);
     }
     void download(String filename, ImageView imageView){
@@ -100,8 +96,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     class ViewHolder extends RecyclerView.ViewHolder{
     TextView txtName, txtHour,txtAddr;
     ImageView imageView;
-
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txt_st_name);

@@ -28,7 +28,6 @@ import okhttp3.Response;
 public class StoreListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StoreAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -37,7 +36,6 @@ public class StoreListActivity extends AppCompatActivity {
 
         Intent intent = getIntent(); //메인에서 인텐트 받아오게.
         recyclerView = findViewById(R.id.recyclerview);
-
         adapter = new StoreAdapter(this, R.layout.activity_store_list_item);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -49,7 +47,6 @@ public class StoreListActivity extends AppCompatActivity {
         thread.start();
 
     }
-
     class StoreGetThread extends Thread {
         @Override
         public void run() {
@@ -88,6 +85,7 @@ public class StoreListActivity extends AppCompatActivity {
                         Store store = new Store(sname, shour, saddr, filename);
                         /*Store store = new Store(sname, shour, saddr);*/
                         adapter.addItem(store);
+
                     }
                     recyclerView.post(new Runnable() {
                         @Override
@@ -95,17 +93,12 @@ public class StoreListActivity extends AppCompatActivity {
                             adapter.notifyDataSetChanged();
                         }
                     });
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
-
     }
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
