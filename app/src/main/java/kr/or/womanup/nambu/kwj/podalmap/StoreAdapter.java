@@ -25,7 +25,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     int layout;
     ArrayList<Store> list;
     CloudBlobContainer container;
-
     public StoreAdapter(Context context, int layout) {
         this.context = context;
         this.layout = layout;
@@ -37,7 +36,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
             String containerName = "storeapp";
             container = blobClient.getContainerReference(containerName);
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -85,7 +83,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             }
         });
         thread.start();
-
     }
 
     @Override
