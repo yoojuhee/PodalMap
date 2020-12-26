@@ -12,10 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="현위치 주변 탐색"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <fragment

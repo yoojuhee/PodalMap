@@ -3,7 +3,6 @@ package kr.or.womanup.nambu.kwj.podalmap;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
 
 import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
@@ -101,7 +99,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             txtName = itemView.findViewById(R.id.txt_st_name);
             txtHour = itemView.findViewById(R.id.txt_st_hour);
             txtAddr = itemView.findViewById(R.id.txt_st_addr);
-            imageView = itemView.findViewById(R.id.img_storelist_store);
+            imageView = itemView.findViewById(R.id.img_store);
 
         }
     }

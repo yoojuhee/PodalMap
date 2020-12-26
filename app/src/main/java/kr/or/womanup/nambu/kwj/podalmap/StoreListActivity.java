@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -34,8 +32,8 @@ public class StoreListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_list);
 
-        Intent intent = getIntent(); //메인에서 인텐트 받아오게.
-        recyclerView = findViewById(R.id.recyclerview);
+        Intent intent = getIntent();
+        recyclerView = findViewById(R.id.recycle_stlist);
         adapter = new StoreAdapter(this, R.layout.activity_store_list_item);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
