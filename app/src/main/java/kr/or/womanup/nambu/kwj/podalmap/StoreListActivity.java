@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -43,6 +45,7 @@ public class StoreListActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(decoration);
         StoreGetThread thread = new StoreGetThread();
         thread.start();
+
 
     }
     class StoreGetThread extends Thread {

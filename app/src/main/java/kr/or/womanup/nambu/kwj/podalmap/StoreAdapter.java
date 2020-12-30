@@ -8,15 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
-
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
@@ -36,10 +33,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
             String containerName = "storeapp";
             container = blobClient.getContainerReference(containerName);
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
+
     public void clear(){list.clear();}
     public void addItem(Store store){list.add(store);}
 
@@ -60,6 +58,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         holder.imageView.setImageResource(0);
         download(store.filename,holder.imageView);
     }
+
     void download(String filename, ImageView imageView){
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -87,7 +86,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {return list.size();}
-
     class ViewHolder extends RecyclerView.ViewHolder{
     TextView txtName, txtHour,txtAddr;
     ImageView imageView;
@@ -97,10 +95,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             txtHour = itemView.findViewById(R.id.txt_st_hour);
             txtAddr = itemView.findViewById(R.id.txt_st_addr);
             imageView = itemView.findViewById(R.id.img_store);
-
         }
     }
 }
-
-
-   
