@@ -36,8 +36,11 @@ public class MenuListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_list);
+        Intent intent = getIntent();
+
         recyclerView = findViewById(R.id.recycle_mnlist);
         adapter = new MenuListAdapter(this, R.layout.activity_menu_list_item);
         recyclerView.setAdapter(adapter);

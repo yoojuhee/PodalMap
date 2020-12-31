@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".OrderListActivity"></activity>
+        <activity android:name=".OrderListActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".ItemDetailActivity" />
         <activity android:name=".MenuListActivity" />

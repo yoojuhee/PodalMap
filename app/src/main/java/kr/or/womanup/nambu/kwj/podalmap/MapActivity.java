@@ -22,7 +22,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-
+//이전 액티비티 : MainActivity
+//다음 액티비티 : StoreListActivity
 public class MapActivity extends AppCompatActivity {
 
     String[] permissionList = {

@@ -24,7 +24,8 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
+//이전 액티비티 : MapActivity
+//다음 액티비티 : StoreAdapter->MenuListActivity
 public class StoreListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StoreAdapter adapter;
@@ -32,20 +33,22 @@ public class StoreListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
         setContentView(R.layout.activity_store_list);
 
-        Intent intent = getIntent();
         recyclerView = findViewById(R.id.recycle_stlist);
+
         adapter = new StoreAdapter(this, R.layout.activity_store_list_item);
         recyclerView.setAdapter(adapter);
+
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
         DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(decoration);
+
         StoreGetThread thread = new StoreGetThread();
         thread.start();
-
 
     }
     class StoreGetThread extends Thread {

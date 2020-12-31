@@ -1,6 +1,7 @@
 package kr.or.womanup.nambu.kwj.podalmap;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     int layout;
     ArrayList<Store> list;
     CloudBlobContainer container;
+    
     public StoreAdapter(Context context, int layout) {
         this.context = context;
         this.layout = layout;
@@ -47,7 +49,17 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(layout, parent, false);
         ViewHolder holder = new ViewHolder(itemView);
+
+//        itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
+//                context.startActivity(intent_menu);
+//            }
+//        });
+
         return holder;
+
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -86,6 +98,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {return list.size();}
+
+
     class ViewHolder extends RecyclerView.ViewHolder{
     TextView txtName, txtHour,txtAddr;
     ImageView imageView;
@@ -95,6 +109,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             txtHour = itemView.findViewById(R.id.txt_st_hour);
             txtAddr = itemView.findViewById(R.id.txt_st_addr);
             imageView = itemView.findViewById(R.id.img_store);
+
         }
     }
 }
