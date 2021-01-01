@@ -260,7 +260,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         view.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
         view.buildDrawingCache();
         Bitmap bitmap = Bitmap.createBitmap(view.getMeasuredWidth(), view.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-
         Canvas canvas = new Canvas(bitmap);
         view.draw(canvas);
 
@@ -280,5 +279,4 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         public void onProviderDisabled(@NonNull String provider) {
         }
     }
-
 }

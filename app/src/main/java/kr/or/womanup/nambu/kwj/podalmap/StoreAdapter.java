@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.microsoft.azure.storage.CloudStorageAccount;
@@ -23,25 +26,30 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     int layout;
     ArrayList<Store> list;
     CloudBlobContainer container;
-    
+
     public StoreAdapter(Context context, int layout) {
         this.context = context;
         this.layout = layout;
         list = new ArrayList<>();
         String connectionString = "DefaultEndpointsProtocol=https;AccountName=womanupyjh1;AccountKey=TIxhs2VvD/Svhn5GmZckdN71mJqaT3EdAYya9A5zjEY4YLBuwq3ndak1y5ag5CoMHcERYk8/E+yuXXQyNv4Lzw==;EndpointSuffix=core.windows.net";
         CloudStorageAccount storageAccount = null;
-        try{
+        try {
             storageAccount = CloudStorageAccount.parse(connectionString);
             CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
             String containerName = "storeapp";
             container = blobClient.getContainerReference(containerName);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void clear(){list.clear();}
-    public void addItem(Store store){list.add(store);}
+    public void clear() {
+        list.clear();
+    }
+
+    public void addItem(Store store) {
+        list.add(store);
+    }
 
     @NonNull
     @Override
@@ -50,17 +58,21 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         View itemView = inflater.inflate(layout, parent, false);
         ViewHolder holder = new ViewHolder(itemView);
 
-//        itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
-//                context.startActivity(intent_menu);
-//            }
-//        });
+
+       itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
+//                intent_menu.putExtra("sid", );
+                context.startActivity(intent_menu);
+            }
+        });
 
         return holder;
 
     }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Store store = list.get(position);
@@ -68,27 +80,29 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         holder.txtHour.setText(store.store_hour);
         holder.txtAddr.setText(store.store_addr);
         holder.imageView.setImageResource(0);
-        download(store.filename,holder.imageView);
+        download(store.filename, holder.imageView);
     }
 
-    void download(String filename, ImageView imageView){
+    void download(String filename, ImageView imageView) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     CloudBlockBlob blob = container.getBlockBlobReference(filename);
-                    if(blob.exists()){
+                    if (blob.exists()) {
                         blob.downloadAttributes();
                         ByteArrayOutputStream os = new ByteArrayOutputStream();
                         blob.download(os);
                         byte[] buffer = os.toByteArray();
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(buffer,0,buffer.length);
-                        ((StoreListActivity)context).runOnUiThread(new Runnable() {
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(buffer, 0, buffer.length);
+                        ((StoreListActivity) context).runOnUiThread(new Runnable() {
                             @Override
-                            public void run() { imageView.setImageBitmap(bitmap);}
+                            public void run() {
+                                imageView.setImageBitmap(bitmap);
+                            }
                         });
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -97,19 +111,22 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     }
 
     @Override
-    public int getItemCount() {return list.size();}
+    public int getItemCount() {
+        return list.size();
+    }
 
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-    TextView txtName, txtHour,txtAddr;
-    ImageView imageView;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        TextView txtName, txtHour, txtAddr;
+        ImageView imageView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txt_st_name);
             txtHour = itemView.findViewById(R.id.txt_st_hour);
             txtAddr = itemView.findViewById(R.id.txt_st_addr);
             imageView = itemView.findViewById(R.id.img_store);
-
         }
     }
+
 }
