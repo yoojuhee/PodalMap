@@ -12,12 +12,11 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = new Intent(this,MainActivity.class);
         try {
-            Thread.sleep(100); //3초로 나중에 변경
+//            Thread.sleep(3000); //나중에 다시 주석 풀기
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //메인으로 넘어가게
         finish();
     }
 }

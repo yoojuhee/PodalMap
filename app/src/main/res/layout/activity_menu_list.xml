@@ -68,7 +68,7 @@
 
             <TextView
                 android:id="@+id/txt_st_pay"
-                android:layout_width="44dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="QR결제수단"
@@ -101,14 +101,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="장바구니 담기" />
+                android:text="장바구니 확인하기" />
 
             <Button
                 android:id="@+id/btn_share"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="장바구니 확인" />
+                android:text="공유하기" />
 
         </LinearLayout>
 

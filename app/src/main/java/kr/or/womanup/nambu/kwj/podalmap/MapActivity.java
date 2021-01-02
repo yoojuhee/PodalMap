@@ -146,7 +146,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         CameraUpdate update = CameraUpdateFactory.newLatLng(position);
         //카메라업데이트:카메라 옮기는 느낌으로 지도를 옮기는 것. 진짜 카메라 아님
         gmap.moveCamera(update);
-        CameraUpdate zoom = CameraUpdateFactory.zoomTo(16f);    //16배확대
+        CameraUpdate zoom = CameraUpdateFactory.zoomTo(17f);    //확대배율
         gmap.animateCamera(zoom);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {

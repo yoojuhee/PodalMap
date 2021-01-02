@@ -86,11 +86,10 @@ public class StoreListActivity extends AppCompatActivity {
                         String shour = item.getString("time");
                         String saddr = item.getString("addr");
                         String filename = item.getString("filename");
-                        int sid = item.getInt("sid");   //아랫줄에도 추가됨
-                        Store store = new Store(sname, shour, saddr, filename, sid);
+                        Store store = new Store(sname, shour, saddr, filename);
                         /*Store store = new Store(sname, shour, saddr);*/
-
                         adapter.addItem(store);
+
                     }
                     recyclerView.post(new Runnable() {
                         @Override
@@ -104,7 +103,6 @@ public class StoreListActivity extends AppCompatActivity {
             }
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

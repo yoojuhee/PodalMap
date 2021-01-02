@@ -15,7 +15,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".OrderListActivity" />
         <activity android:name=".CartActivity" />
-        <activity android:name=".ItemDetailActivity" />
         <activity android:name=".MenuListActivity" />
         <activity android:name=".StoreListActivity" />
         <activity android:name=".MapActivity" />

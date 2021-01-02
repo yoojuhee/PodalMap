@@ -28,6 +28,8 @@
         android:background="@drawable/first_page_button"
         android:text="주문하기"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_first_page"
         app:layout_constraintStart_toStartOf="@+id/img_first_page" />
 
@@ -39,8 +41,26 @@
         android:layout_marginBottom="164dp"
         android:background="@drawable/first_page_button"
         android:text="주문내역"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/img_first_page"
         app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toEndOf="@+id/btn_order_start" />
+
+    <TextView
+        android:id="@+id/txt_first_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/godom"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="포장의 달인"
+        android:textColor="#000000"
+        android:textSize="54dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
