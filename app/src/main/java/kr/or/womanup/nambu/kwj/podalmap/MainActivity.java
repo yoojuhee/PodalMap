@@ -6,13 +6,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-//12.25 변동사항 : 김원정
-//MenuListActivity, activity_menu_list.xml, activity_menu_list_item.xml, ItemDetailActivity, activity_item_detail.xml,
-//CartActivity, activity_cart.xml, activity_cart_item.xml, OrderListActivity,activity_order_list.xml생성
-//이미지뷰 외의 아이디에 store라는 이름이 들어가는 경우 st로, menu는 mn으로 전부 축약
-//RecyclerView는 recycle로 축약
-//디자인 개선, 정렬 등은 나중에 할 예정
-
 
 public class MainActivity extends AppCompatActivity {
     Button btn_start, btn_check;

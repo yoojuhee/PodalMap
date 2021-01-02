@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHolder> {
@@ -41,8 +42,13 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Menulist menulist = list.get(position);
         holder.txtname.setText(menulist.menu_name);
+
+//        가격 포맷설정(나중에 주석 풀고 위치 옮기기)
+//        DecimalFormat myFormatter = new DecimalFormat("###,###");
+//        String formattedStringPrice = myFormatter.format(menulist.menu_price);
+//
         holder.txtprice.setText(menulist.menu_price);
-        holder.txtdetail.setText(menulist.menu_detail);
+//        holder.txtdetail.setText(menulist.menu_detail);
 
     }
 
@@ -52,14 +58,13 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtname, txtprice, txtdetail;
-        ImageView imageView;
+        TextView txtname, txtprice;
+//        ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtname = itemView.findViewById(R.id.txt_mn_name_cart);
             txtprice = itemView.findViewById(R.id.txt_mn_price_cart);
-            txtdetail = itemView.findViewById(R.id.txt_mn_amount_cart);
 
         }
     }

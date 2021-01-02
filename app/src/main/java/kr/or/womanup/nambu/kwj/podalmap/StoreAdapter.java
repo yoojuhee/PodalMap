@@ -50,13 +50,13 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         View itemView = inflater.inflate(layout, parent, false);
         ViewHolder holder = new ViewHolder(itemView);
 
-//        itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
-//                context.startActivity(intent_menu);
-//            }
-//        });
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
+                context.startActivity(intent_menu);
+            }
+        });
 
         return holder;
 
@@ -109,7 +109,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             txtHour = itemView.findViewById(R.id.txt_st_hour);
             txtAddr = itemView.findViewById(R.id.txt_st_addr);
             imageView = itemView.findViewById(R.id.img_store);
-
         }
     }
 }
