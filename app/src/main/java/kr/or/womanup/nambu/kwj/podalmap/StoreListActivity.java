@@ -87,9 +87,7 @@ public class StoreListActivity extends AppCompatActivity {
                         String saddr = item.getString("addr");
                         String filename = item.getString("filename");
                         Store store = new Store(sname, shour, saddr, filename);
-                        /*Store store = new Store(sname, shour, saddr);*/
                         adapter.addItem(store);
-
                     }
                     recyclerView.post(new Runnable() {
                         @Override

@@ -39,7 +39,7 @@ public class MenuListActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_list);
-        Intent intent = getIntent();
+
 
         recyclerView = findViewById(R.id.recycle_mnlist);
         adapter = new MenuListAdapter(this, R.layout.activity_menu_list_item);
@@ -49,6 +49,9 @@ public class MenuListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
         DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL); //선긋기
         recyclerView.addItemDecoration(decoration);
+        Intent intent = getIntent();
+        MenuListActivity.MenuGetThread thread = new MenuGetThread();
+        thread.start();
 
 
     }
@@ -61,6 +64,10 @@ public class MenuListActivity extends AppCompatActivity {
             String url = "http://10.0.2.2:8000/menu_list/";
             builder = builder.url(url);
             Request request = builder.build();
+            GetCallBack callBack = new GetCallBack();
+            Call call = client.newCall(request);
+            call.enqueue(callBack);
+
         }
 
         class GetCallBack implements Callback{
@@ -72,16 +79,17 @@ public class MenuListActivity extends AppCompatActivity {
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 String result = response.body().string();
                 adapter.clear();
+                Log.d("Rest", result);
                 try {
                     JSONObject root = new JSONObject(result);
                     int count = root.getInt("count");
-                    JSONArray menulist = root.getJSONArray("menulist");
-                    for (int i=0; i<menulist.length(); i++){
-                        JSONObject item = menulist.getJSONObject(i);
-                        String mid = item.getString("mname");
-                        String mprice = item.getString("mprice");
-                        String mdetail = item.getString("mdetail");
-                        Menulist menu = new Menulist(mid,mprice,mdetail);
+                    JSONArray menus = root.getJSONArray("menus");
+                    for (int i=0; i<menus.length(); i++){
+                        JSONObject item = menus.getJSONObject(i);
+                        String menu_name= item.getString("menu_name");
+                        String menu_price = item.getString("menu_price");
+                     /*   String mdetail = item.getString("mdetail");*/
+                        Menulist menu = new Menulist(menu_name,menu_price);
                         adapter.addItem(menu);
                     }
                     recyclerView.post(new Runnable() {
