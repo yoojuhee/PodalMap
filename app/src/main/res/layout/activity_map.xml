@@ -18,6 +18,7 @@
 
     <Button
         android:id="@+id/btn_gps_ok"
+        style="@style/customBtnFontStyle"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginBottom="16dp"

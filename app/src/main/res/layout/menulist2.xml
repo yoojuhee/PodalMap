@@ -19,6 +19,7 @@
 
         <TextView
             android:id="@+id/txt_st_name_mn"
+            style="@style/customTextViewFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="69dp"
             android:layout_gravity="center"
@@ -26,7 +27,8 @@
             android:text="가게이름"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +46,7 @@
 
                 <TextView
                     android:id="@+id/txt_st_hour_mn"
+                    style="@style/customTextViewFontStyle"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:text="영업시간"
@@ -52,6 +55,7 @@
 
                 <TextView
                     android:id="@+id/txt_st_hour_mn_detail"
+                    style="@style/customTextViewFontStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="오전 00시 ~ 오후 00시" />
@@ -68,6 +72,7 @@
 
                 <TextView
                     android:id="@+id/txt_st_pay"
+                    style="@style/customTextViewFontStyle"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:text="QR결제수단"
@@ -76,6 +81,7 @@
 
                 <TextView
                     android:id="@+id/txt_st_pay_detail"
+                    style="@style/customTextViewFontStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="00페이, 00페이 가능" />
@@ -92,6 +98,7 @@
 
                 <TextView
                     android:id="@+id/txt_st_tel"
+                    style="@style/customTextViewFontStyle"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:text="전화번호"
@@ -100,6 +107,7 @@
 
                 <TextView
                     android:id="@+id/txt_st_tel2"
+                    style="@style/customTextViewFontStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -108,6 +116,7 @@
 
             <TextView
                 android:id="@+id/textView"
+                style="@style/customTextViewFontStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -128,9 +137,10 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="96dp"
-        android:layout_height="108dp"
+        android:layout_width="88dp"
+        android:layout_height="95dp"
         android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

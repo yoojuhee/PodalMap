@@ -95,7 +95,7 @@ public class MenuListActivity extends AppCompatActivity {
                         String menu_price = format.format(temp_menu_price);
                       /*  Boolean is_selected = item.getBoolean("is_selected");*/
                      /*   String mdetail = item.getString("mdetail");*/
-                        Menulist menu = new Menulist(menu_name,menu_price);
+                        Menulist menu = new Menulist(menu_name,menu_price,true);
                         adapter.addItem(menu);
 
                     }

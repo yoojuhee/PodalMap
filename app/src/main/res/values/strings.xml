@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PodalMap</string>
+    <string name="app_name">포장의달인</string>
     <string name="connectionString">DefaultEndpointsProtocol=https;AccountName=womanupyjh1;AccountKey=TIxhs2VvD/Svhn5GmZckdN71mJqaT3EdAYya9A5zjEY4YLBuwq3ndak1y5ag5CoMHcERYk8/E+yuXXQyNv4Lzw==;EndpointSuffix=core.windows.net</string>
     <string name="container_name">storeapp</string>
 

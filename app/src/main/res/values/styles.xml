@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="buttonStyle">@style/customBtnFontStyle</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="windowNoTitle">true</item>
+<!--        <item name="windowNoTitle">true</item>-->
         <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="customBtnFontStyle" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:fontFamily">@font/custom_font_family</item>
+    </style>
+    <style name="customTextViewFontStyle" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/custom_font_family</item>
     </style>
 
 </resources>

@@ -13,7 +13,7 @@
         android:layout_height="69dp"
         android:layout_gravity="center"
         android:gravity="center_vertical"
-        android:text="가게이름"
+        android:text="이 레이아웃 안씀"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#000000" />
