@@ -93,9 +93,7 @@ public class MenuListActivity extends AppCompatActivity {
                         int temp_menu_price = item.getInt("menu_price");
                         DecimalFormat format = new DecimalFormat("###,###");//콤마 format.format(value);
                         String menu_price = format.format(temp_menu_price);
-                      /*  Boolean is_selected = item.getBoolean("is_selected");*/
-                     /*   String mdetail = item.getString("mdetail");*/
-                        Menulist menu = new Menulist(menu_name,menu_price,true);
+                        Menulist menu = new Menulist(menu_name,menu_price);
                         adapter.addItem(menu);
 
                     }
