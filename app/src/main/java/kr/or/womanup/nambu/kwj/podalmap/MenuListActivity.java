@@ -35,7 +35,7 @@ public class MenuListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MenuListAdapter adapter;
     Store store;
-    TextView txt_store_name;
+    TextView txt_store_name,txt_st_hour_mn_detail,txt_st_pay_detail,txt_st_tel2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +55,17 @@ public class MenuListActivity extends AppCompatActivity {
         Log.d("store",store.store_name);
         txt_store_name = (TextView) findViewById(R.id.txt_st_name_mn);
         txt_store_name.setText(store.store_name);
+        txt_st_hour_mn_detail =(TextView) findViewById(R.id.txt_st_hour_mn_detail);
+        txt_st_hour_mn_detail.setText(store.store_hour);
+        txt_st_pay_detail =(TextView) findViewById(R.id.txt_st_pay_detail);
+        txt_st_pay_detail.setText(store.pay);
+        txt_st_tel2 = (TextView)findViewById(R.id.txt_st_tel2);
+        txt_st_tel2.setText(store.tel);
+
+
+
         MenuListActivity.MenuGetThread thread = new MenuGetThread();
-        thread.start();
+        thread.start();//
     }
 
     class MenuGetThread extends Thread{

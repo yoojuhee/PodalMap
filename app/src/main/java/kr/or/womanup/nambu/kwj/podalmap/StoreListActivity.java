@@ -35,18 +35,14 @@ public class StoreListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_store_list);
-
         recyclerView = findViewById(R.id.recycle_stlist);
-
         adapter = new StoreAdapter(this, R.layout.activity_store_list_item);
         recyclerView.setAdapter(adapter);
-
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
         DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(decoration);
-
         StoreGetThread thread = new StoreGetThread();
         thread.start();
 
@@ -87,7 +83,9 @@ public class StoreListActivity extends AppCompatActivity {
                         String saddr = item.getString("addr");
                         String filename = item.getString("filename");
                         int sid = item.getInt("sid");
-                        Store store = new Store(sname, shour, saddr, sid,filename);
+                        String pay = item.getString("pay");
+                        String tel = item.getString("tel");
+                        Store store = new Store(sname, shour, saddr, sid,filename,pay,tel);
                         adapter.addItem(store);
                     }
                     recyclerView.post(new Runnable() {

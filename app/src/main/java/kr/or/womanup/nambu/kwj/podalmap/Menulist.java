@@ -16,6 +16,11 @@ public class Menulist {
       /*  this.menu_detail = menu_detail;*/
     }
 
+    public Menulist(String menu_name, String menu_price) {
+        this.menu_name = menu_name;
+        this.menu_price = menu_price;
+    }
+
 //    public Menulist(String menu_name, String menu_price) {
 //    }
 }
