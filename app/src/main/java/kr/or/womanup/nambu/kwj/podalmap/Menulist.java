@@ -15,6 +15,9 @@ public class Menulist {
         this.is_selected = is_selected;
       /*  this.menu_detail = menu_detail;*/
     }
+
+//    public Menulist(String menu_name, String menu_price) {
+//    }
 }
 
 
