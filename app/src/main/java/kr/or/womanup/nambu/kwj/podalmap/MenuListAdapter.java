@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHolder> {
@@ -42,7 +43,6 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
         Menulist menulist = list.get(position);
         holder.txtname.setText(menulist.menu_name);
         holder.txtprice.setText(menulist.menu_price);
-     /*   holder.txtdetail.setText(menulist.menu_detail);*/
     }
 
     @Override
@@ -58,7 +58,6 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
             txtname = itemView.findViewById(R.id.txt_mn_name_cart);
             txtprice = itemView.findViewById(R.id.txt_mn_price_cart);
             /*txtdetail = itemView.findViewById(R.id.txt_mn_amount_cart);*/
-
         }
     }
 }

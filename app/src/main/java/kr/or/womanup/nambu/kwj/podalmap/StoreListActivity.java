@@ -86,7 +86,8 @@ public class StoreListActivity extends AppCompatActivity {
                         String shour = item.getString("time");
                         String saddr = item.getString("addr");
                         String filename = item.getString("filename");
-                        Store store = new Store(sname, shour, saddr, filename);
+                        int sid = item.getInt("sid");
+                        Store store = new Store(sname, shour, saddr, sid,filename);
                         adapter.addItem(store);
                     }
                     recyclerView.post(new Runnable() {

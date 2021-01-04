@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,12 +34,13 @@ public class MenuListActivity extends AppCompatActivity {
     //그래서 menulistactivity에서 사용되는 영업시간은 뒤에 mn을 붙였음
     RecyclerView recyclerView;
     MenuListAdapter adapter;
+    Store store;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_list);
+        setContentView(R.layout.menulist2);
 
 
         recyclerView = findViewById(R.id.recycle_mnlist);
@@ -50,24 +52,23 @@ public class MenuListActivity extends AppCompatActivity {
         DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL); //선긋기
         recyclerView.addItemDecoration(decoration);
         Intent intent = getIntent();
+        store = (Store)intent.getSerializableExtra("store");
         MenuListActivity.MenuGetThread thread = new MenuGetThread();
         thread.start();
-
-
     }
+
     class MenuGetThread extends Thread{
         @Override
         public void run() {
             super.run();
             OkHttpClient client = new OkHttpClient();
             Request.Builder builder = new Request.Builder();
-            String url = "http://10.0.2.2:8000/menu_list/";
+            String url = "http://10.0.2.2:8000/menu_list/?s_id="+store.sid;
             builder = builder.url(url);
             Request request = builder.build();
             GetCallBack callBack = new GetCallBack();
             Call call = client.newCall(request);
             call.enqueue(callBack);
-
         }
 
         class GetCallBack implements Callback{
@@ -87,7 +88,10 @@ public class MenuListActivity extends AppCompatActivity {
                     for (int i=0; i<menus.length(); i++){
                         JSONObject item = menus.getJSONObject(i);
                         String menu_name= item.getString("menu_name");
-                        String menu_price = item.getString("menu_price");
+                        int temp_menu_price = item.getInt("menu_price");
+                        DecimalFormat format = new DecimalFormat("###,###");//콤마 format.format(value);
+                        String menu_price = format.format(temp_menu_price);
+
                      /*   String mdetail = item.getString("mdetail");*/
                         Menulist menu = new Menulist(menu_name,menu_price);
                         adapter.addItem(menu);

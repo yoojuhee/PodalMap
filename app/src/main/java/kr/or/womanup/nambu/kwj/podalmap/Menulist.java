@@ -1,8 +1,11 @@
 package kr.or.womanup.nambu.kwj.podalmap;
 
+import java.text.DecimalFormat;
+
 public class Menulist {
     String menu_name;
     String menu_price;
+
   /*  String menu_detail;*/
 
     public Menulist(String menu_name, String menu_price) {
@@ -10,6 +13,5 @@ public class Menulist {
         this.menu_price = menu_price;
       /*  this.menu_detail = menu_detail;*/
     }
-
-
 }
+

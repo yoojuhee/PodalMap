@@ -25,19 +25,19 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     CloudBlobContainer container;
     
     public StoreAdapter(Context context, int layout) {
-        this.context = context;
-        this.layout = layout;
-        list = new ArrayList<>();
-        String connectionString = "DefaultEndpointsProtocol=https;AccountName=womanupyjh1;AccountKey=TIxhs2VvD/Svhn5GmZckdN71mJqaT3EdAYya9A5zjEY4YLBuwq3ndak1y5ag5CoMHcERYk8/E+yuXXQyNv4Lzw==;EndpointSuffix=core.windows.net";
-        CloudStorageAccount storageAccount = null;
-        try{
-            storageAccount = CloudStorageAccount.parse(connectionString);
-            CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
-            String containerName = "storeapp";
-            container = blobClient.getContainerReference(containerName);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+            this.context = context;
+            this.layout = layout;
+            list = new ArrayList<>();
+            String connectionString = "DefaultEndpointsProtocol=https;AccountName=womanupyjh1;AccountKey=TIxhs2VvD/Svhn5GmZckdN71mJqaT3EdAYya9A5zjEY4YLBuwq3ndak1y5ag5CoMHcERYk8/E+yuXXQyNv4Lzw==;EndpointSuffix=core.windows.net";
+            CloudStorageAccount storageAccount = null;
+            try{
+                storageAccount = CloudStorageAccount.parse(connectionString);
+                CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+                String containerName = "storeapp";
+                container = blobClient.getContainerReference(containerName);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
     }
 
     public void clear(){list.clear();}
@@ -49,15 +49,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(layout, parent, false);
         ViewHolder holder = new ViewHolder(itemView);
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
-                context.startActivity(intent_menu);
-            }
-        });
-
         return holder;
 
     }
@@ -109,7 +100,17 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             txtHour = itemView.findViewById(R.id.txt_st_hour);
             txtAddr = itemView.findViewById(R.id.txt_st_addr);
             imageView = itemView.findViewById(R.id.img_store);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    Store store = list.get(pos);
+                    Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
+//                    intent_menu.putExtra("sid",store.sid);
+                    intent_menu.putExtra("store",store);
+                    context.startActivity(intent_menu);
+                }
+            });
         }
     }
 }
