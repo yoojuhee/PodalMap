@@ -35,14 +35,13 @@ public class MenuListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MenuListAdapter adapter;
     Store store;
+    TextView txt_store_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menulist2);
-
-
         recyclerView = findViewById(R.id.recycle_mnlist);
         adapter = new MenuListAdapter(this, R.layout.activity_menu_list_item);
         recyclerView.setAdapter(adapter);
@@ -53,6 +52,9 @@ public class MenuListActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(decoration);
         Intent intent = getIntent();
         store = (Store)intent.getSerializableExtra("store");
+        Log.d("store",store.store_name);
+        txt_store_name = (TextView) findViewById(R.id.txt_st_name_mn);
+        txt_store_name.setText(store.store_name);
         MenuListActivity.MenuGetThread thread = new MenuGetThread();
         thread.start();
     }
@@ -91,10 +93,11 @@ public class MenuListActivity extends AppCompatActivity {
                         int temp_menu_price = item.getInt("menu_price");
                         DecimalFormat format = new DecimalFormat("###,###");//콤마 format.format(value);
                         String menu_price = format.format(temp_menu_price);
-
+                      /*  Boolean is_selected = item.getBoolean("is_selected");*/
                      /*   String mdetail = item.getString("mdetail");*/
                         Menulist menu = new Menulist(menu_name,menu_price);
                         adapter.addItem(menu);
+
                     }
                     recyclerView.post(new Runnable() {
                         @Override
