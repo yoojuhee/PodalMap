@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -35,7 +33,7 @@ public class StoreListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_store_list);
-        recyclerView = findViewById(R.id.recycle_stlist);
+        recyclerView = findViewById(R.id.recycle_orderlist);
         adapter = new StoreAdapter(this, R.layout.activity_store_list_item);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);

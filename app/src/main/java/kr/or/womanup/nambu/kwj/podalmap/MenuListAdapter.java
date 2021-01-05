@@ -50,7 +50,9 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Menulist menulist = list.get(position);
         holder.txtname.setText(menulist.menu_name);
-        holder.txtprice.setText(menulist.menu_price);
+        DecimalFormat format = new DecimalFormat("###,###"+"원");//콤마 format.format(value);
+        String menu_price = format.format(menulist.menu_price);
+        holder.txtprice.setText(menu_price);
         holder.checkBox.setTag(position);
         Checkboxlistener listener = new Checkboxlistener();
         holder.checkBox.setOnCheckedChangeListener(listener);

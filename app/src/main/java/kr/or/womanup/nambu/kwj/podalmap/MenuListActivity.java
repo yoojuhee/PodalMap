@@ -38,7 +38,7 @@ public class MenuListActivity extends AppCompatActivity {
     //그래서 menulistactivity에서 사용되는 영업시간은 뒤에 mn을 붙였음
     RecyclerView recyclerView;
     MenuListAdapter adapter;
-    Store store;
+    public static Store store;
     TextView txt_store_name,txt_st_hour_mn_detail,txt_st_pay_detail,txt_st_tel2;
     ImageButton btn_cart;
 
@@ -68,6 +68,7 @@ public class MenuListActivity extends AppCompatActivity {
         txt_st_pay_detail.setText(store.pay);
         txt_st_tel2 = (TextView)findViewById(R.id.txt_st_tel2);
         txt_st_tel2.setText(store.tel);
+        intent.putExtra("store",store);
         MenuListActivity.MenuGetThread thread = new MenuGetThread();
         thread.start();
         btn_cart = findViewById(R.id.imageButton2);
@@ -119,9 +120,8 @@ public class MenuListActivity extends AppCompatActivity {
                     for (int i=0; i<menus.length(); i++){
                         JSONObject item = menus.getJSONObject(i);
                         String menu_name= item.getString("menu_name");
-                        int temp_menu_price = item.getInt("menu_price");
-                        DecimalFormat format = new DecimalFormat("###,###");//콤마 format.format(value);
-                        String menu_price = format.format(temp_menu_price);
+                        int menu_price = item.getInt("menu_price");
+
                         Menulist menu = new Menulist(menu_name,menu_price);
                         adapter.addItem(menu);
 

@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHoler> {
@@ -26,7 +28,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHoler> {
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
         Menulist menulist = list.get(position);
         holder.txt_mn_name_cart.setText(menulist.menu_name);
-        holder.txt_mn_amountprice2.setText(menulist.menu_price);
+        DecimalFormat format = new DecimalFormat("###,###"+"원");//콤마 format.format(value);
+        String temp_menu_price = format.format(menulist.menu_price);
+        holder.txt_mn_amountprice2.setText(temp_menu_price + "");
     }
     @Override
     public int getItemCount() {
@@ -37,6 +41,15 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHoler> {
         this.layout = layout;
         this.list = list;
     }
+    public int getAmount(){
+        int amount=0;
+        for(Menulist menu : list) {
+            int price = menu.menu_price;
+            amount += price;
+        }
+        return amount;
+    }
+
     class ViewHoler extends RecyclerView.ViewHolder{
         TextView txt_mn_name_cart, txt_mn_amountprice2;
         public ViewHoler(@NonNull View itemView) {

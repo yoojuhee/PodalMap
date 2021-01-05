@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //주문내역 가는 인텐트 만들것 이름은 intent_check
                 //startActivity(intent_check);
-                btn_check.setText("준비중");
+                Intent intent_start = new Intent(getApplicationContext(),OrderListActivity.class);
+                startActivity(intent_start);
             }
         });
 
