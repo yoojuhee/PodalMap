@@ -39,9 +39,9 @@ public class CartActivity extends AppCompatActivity {
         btn_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<Menulist> selectedMenus = new ArrayList<>();
+
                 Intent intent = new Intent(CartActivity.this, OrderListActivity.class);
-                intent.putExtra("selected_menu", selectedMenus);
+                intent.putExtra("selected_menu", list);
                 startActivity(intent);
             }
         });

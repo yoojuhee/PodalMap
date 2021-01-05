@@ -1,6 +1,8 @@
 package kr.or.womanup.nambu.kwj.podalmap;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -13,6 +15,7 @@ public class OrderListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Menulist> list;
     TextView txt_st_name_order;
+    OrderAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,13 @@ public class OrderListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         list = (ArrayList<Menulist>) intent.getSerializableExtra("selected_menu");
         recyclerView = findViewById(R.id.recycle_stlist);
-
+        adapter = new OrderAdapter(this,R.layout.activity_order_list_item,list);
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(manager);
+        DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(decoration);
 
 
     }
