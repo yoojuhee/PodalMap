@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +22,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -36,12 +40,15 @@ public class MenuListActivity extends AppCompatActivity {
     MenuListAdapter adapter;
     Store store;
     TextView txt_store_name,txt_st_hour_mn_detail,txt_st_pay_detail,txt_st_tel2;
+    ImageButton btn_cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menulist2);
+        setTheme(R.style.AppTheme);
+
         recyclerView = findViewById(R.id.recycle_mnlist);
         adapter = new MenuListAdapter(this, R.layout.activity_menu_list_item);
         recyclerView.setAdapter(adapter);
@@ -52,7 +59,7 @@ public class MenuListActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(decoration);
         Intent intent = getIntent();
         store = (Store)intent.getSerializableExtra("store");
-        Log.d("store",store.store_name);
+//        Log.d("store",store.store_name);
         txt_store_name = (TextView) findViewById(R.id.txt_st_name_mn);
         txt_store_name.setText(store.store_name);
         txt_st_hour_mn_detail =(TextView) findViewById(R.id.txt_st_hour_mn_detail);
@@ -61,11 +68,24 @@ public class MenuListActivity extends AppCompatActivity {
         txt_st_pay_detail.setText(store.pay);
         txt_st_tel2 = (TextView)findViewById(R.id.txt_st_tel2);
         txt_st_tel2.setText(store.tel);
-
-
-
         MenuListActivity.MenuGetThread thread = new MenuGetThread();
-        thread.start();//
+        thread.start();
+        btn_cart = findViewById(R.id.imageButton2);
+        btn_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Menulist> selectedMenus = new ArrayList<>();
+                for(Menulist menu : adapter.list){
+                    if(menu.is_selected){
+                        selectedMenus.add(menu);
+                    }
+                }
+                Intent intent = new Intent(MenuListActivity.this, CartActivity.class);
+                intent.putExtra("selected_menu", selectedMenus);
+                startActivity(intent);
+            }
+        });
+
     }
 
     class MenuGetThread extends Thread{

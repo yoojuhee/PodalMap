@@ -154,10 +154,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         }
         gmap.setMyLocationEnabled(true); //내 위치가 파란 점으로 나옴
-
         gmap.setOnMarkerClickListener(this);     //마커 안뜨면 이거랑 이 아래줄 위치를 if문 위로 올려보기...
         gmap.setOnMapClickListener(this);
-
         setCustomMarkerView();
         getMarkerItems();
 
@@ -173,16 +171,25 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         //여기에 가게 리스트를 받아와야 되는데 내 컴퓨터에선 안 되니까 일단 임시 samplelist로 add해서
         //마커들 생성함
         ArrayList<MapMarkerItem> sampleList = new ArrayList();
-        sampleList.add(new MapMarkerItem(37.462778, 126.904806, "가게1"));
-        sampleList.add(new MapMarkerItem(37.462432, 126.90817, "가게22"));
-        sampleList.add(new MapMarkerItem(37.463775, 126.903509, "가게333"));
-        sampleList.add(new MapMarkerItem(37.462401, 126.905319, "가게4444"));
-        sampleList.add(new MapMarkerItem(37.464509, 126.903162, "가게55555"));
-        sampleList.add(new MapMarkerItem(37.462912, 126.90213, "가게666666"));
-        sampleList.add(new MapMarkerItem(37.527523, 126.90213, "가게7777777"));
-        sampleList.add(new MapMarkerItem(37.462912, 126.899244, "가게99"));
-        sampleList.add(new MapMarkerItem(37.461604, 126.902646, "가게00"));
-
+        sampleList.add(new MapMarkerItem(37.462778, 126.904806, "정통 춘천 닭갈비"));
+        sampleList.add(new MapMarkerItem(37.462432, 126.90817, "1인용 착한 쭈꾸미"));
+        sampleList.add(new MapMarkerItem(37.463775, 126.903509, "독산곱창볶음전문점"));
+        sampleList.add(new MapMarkerItem(37.462401, 126.907905, "쉐프의 떡볶이&컵밥"));
+        sampleList.add(new MapMarkerItem(37.465839, 126.902855, "청담곱떡 금천점"));
+        sampleList.add(new MapMarkerItem(37.463303, 126.903854, "홍참치앤초밥"));
+        sampleList.add(new MapMarkerItem(37.464509, 126.902998, "카츠루와 독산점"));
+        sampleList.add(new MapMarkerItem(37.46935, 126.897254, "돈까스박스 독산점"));
+        sampleList.add(new MapMarkerItem(37.462524, 126.905319, "또래오래 시흥2호점 독산3점"));
+        sampleList.add(new MapMarkerItem(37.464324, 126.903162, "훌랄라참숯바베큐 독산3점"));
+        sampleList.add(new MapMarkerItem(37.462912, 126.904147, "생활치킨 독산점"));
+        sampleList.add(new MapMarkerItem(37.467817, 126.903634, "마라반점 금천점"));
+        sampleList.add(new MapMarkerItem(37.476146, 126.900254, "신현일각"));
+        sampleList.add(new MapMarkerItem(37.461604, 126.899982, "흥부찜닭 금천독산점"));
+        sampleList.add(new MapMarkerItem(37.464067, 126.901991, "욜로"));
+        sampleList.add(new MapMarkerItem(37.465896, 126.90213, "빙떡"));
+        sampleList.add(new MapMarkerItem(37.464463, 126.899244, "커피에반하다 서울독산초점"));
+        sampleList.add(new MapMarkerItem(37.464434, 126.902646, "KFC 독산동점"));
+        sampleList.add(new MapMarkerItem(37.458708, 126.905318, "롯데리아 시흥현대시장점"));
         for(MapMarkerItem mapMarkerItem : sampleList){
             addMarkerItem(mapMarkerItem, false);
         }

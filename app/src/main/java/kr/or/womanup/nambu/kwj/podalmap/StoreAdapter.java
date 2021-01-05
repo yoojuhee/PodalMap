@@ -106,7 +106,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
                     int pos = getAdapterPosition();
                     Store store = list.get(pos);
                     Intent intent_menu = new Intent(context.getApplicationContext(),MenuListActivity.class);
-//                    intent_menu.putExtra("sid",store.sid);
                     intent_menu.putExtra("store",store);
                     context.startActivity(intent_menu);
                 }

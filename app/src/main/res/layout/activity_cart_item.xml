@@ -81,14 +81,6 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btn_count_reduce"
-                        style="@style/customBtnFontStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="-" />
-
-                    <Button
                         android:id="@+id/btn_count_cart"
                         style="@style/customBtnFontStyle"
                         android:layout_width="wrap_content"
@@ -96,13 +88,6 @@
                         android:layout_weight="1"
                         android:text="1" />
 
-                    <Button
-                        android:id="@+id/btn_count_incre"
-                        style="@style/customBtnFontStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="+" />
                 </LinearLayout>
             </LinearLayout>
 

@@ -1,8 +1,9 @@
 package kr.or.womanup.nambu.kwj.podalmap;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Menulist {
+public class Menulist implements Serializable {
     String menu_name;
     String menu_price;
     boolean is_selected;

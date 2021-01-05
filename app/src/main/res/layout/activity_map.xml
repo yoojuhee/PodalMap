@@ -24,7 +24,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/gradientbutton"
         android:gravity="center|center_vertical"
-        android:text="현위치 주변 탐색"
+        android:text="주변 가게 리스트 보기"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/map"
