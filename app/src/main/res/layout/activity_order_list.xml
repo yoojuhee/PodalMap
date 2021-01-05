@@ -9,27 +9,30 @@
 
     <TextView
         android:id="@+id/txt_orderlisttitle"
+        android:text="주문내역"
         style="@style/customTextViewFontStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="69dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_vertical"
-        android:text="주문내역"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/gradient_rectangle"
+        android:gravity="center|center_vertical"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txt_st_name_order"
         style="@style/customTextViewFontStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="15dp"
+        android:gravity="center"
         android:text="가게이름"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_orderlist"
@@ -41,14 +44,16 @@
     <TextView
         android:id="@+id/txt_amount_price2"
         style="@style/customTextViewFontStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
         android:layout_marginTop="30dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="40dp"
-        android:text="총 00000원"
-        android:textAlignment="textEnd"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="#FFF6AF"
+        android:padding="5dp"
+        android:text="주문 총 가격"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000" />
+        android:textColor="#BB82DE" />
 
 </LinearLayout>
