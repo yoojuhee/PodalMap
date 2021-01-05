@@ -6,9 +6,10 @@
     <TextView
         android:id="@+id/txt_marker"
 
+        style="@style/customTextViewFontStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:background="@drawable/ic_marker_white"
         android:gravity="center"
         android:textSize="16sp" />

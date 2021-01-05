@@ -20,22 +20,10 @@ public class MainActivity extends AppCompatActivity {
         btn_start=findViewById(R.id.btn_order_start);
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {   //주문하기 버튼 누르면 맵으로 넘어가게 할 것임
+            public void onClick(View v) {
                 Intent intent_start = new Intent(getApplicationContext(),MapActivity.class);
                 startActivity(intent_start);
             }
         });
-
-        btn_check=findViewById(R.id.btn_order_check);
-        btn_check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //주문내역 가는 인텐트 만들것 이름은 intent_check
-                //startActivity(intent_check);
-                Intent intent_start = new Intent(getApplicationContext(),OrderListActivity.class);
-                startActivity(intent_start);
-            }
-        });
-
     }
 }

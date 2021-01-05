@@ -153,8 +153,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 return;
             }
         }
-        gmap.setMyLocationEnabled(true); //내 위치가 파란 점으로 나옴
-        gmap.setOnMarkerClickListener(this);     //마커 안뜨면 이거랑 이 아래줄 위치를 if문 위로 올려보기...
+        gmap.setMyLocationEnabled(true);
+        gmap.setOnMarkerClickListener(this);
         gmap.setOnMapClickListener(this);
         setCustomMarkerView();
         getMarkerItems();

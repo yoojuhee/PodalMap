@@ -45,14 +45,6 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btn_delete"
-                    style="@style/customBtnFontStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="X"
-                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
